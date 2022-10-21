@@ -19,7 +19,7 @@ public class koneksi {
             String user = "root";
             String pass = "";
             
-            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             con = DriverManager.getConnection(url, user, pass);
         }catch(Exception e){
             System.out.println("Koneksi Gagal"+e);

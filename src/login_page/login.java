@@ -8,15 +8,19 @@ package login_page;
 import dashboard.admin_page;
 import static dashboard.admin_page.pendaftaran;
 import static dashboard.admin_page.data_petugas;
+import static dashboard.admin_page.data_pmbyr;
 import static dashboard.admin_page.data_siswa;
 import static dashboard.admin_page.edit;
 import static dashboard.admin_page.edit_p;
 import static dashboard.admin_page.hapus;
 import static dashboard.admin_page.hapus_p;
 import static dashboard.admin_page.hubungi;
+import static dashboard.admin_page.pmbyr;
 import static dashboard.admin_page.print;
 import static dashboard.admin_page.print_p;
-import static dashboard.admin_page.psn_msk;
+import static dashboard.admin_page.print_pmbyr;
+import static dashboard.admin_page.server_chat;
+//import static dashboard.admin_page.psn_msk;
 import static dashboard.admin_page.simpan;
 import static dashboard.admin_page.simpan_p;
 import static dashboard.admin_page.tampil;
@@ -53,6 +57,7 @@ public class login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         mainPanel1 = new javax.swing.JPanel();
         javax.swing.JPanel admin2 = new javax.swing.JPanel();
@@ -83,10 +88,19 @@ public class login extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("PELITA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(56, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(51, 51, 51))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(69, 69, 69)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -94,11 +108,11 @@ public class login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(31, 31, 31)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(51, 51, 51))
+                .addComponent(jLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +120,9 @@ public class login extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(30, 30, 30))
@@ -257,8 +273,10 @@ public class login extends javax.swing.JFrame {
                 hapus_p.setEnabled(true);
                 print.setEnabled(true);
                 print_p.setEnabled(true);
-                psn_msk.setEnabled(true);
-                
+                server_chat.setEnabled(true);
+                pmbyr.setEnabled(true);
+                data_pmbyr.setEnabled(true);
+                print_pmbyr.setEnabled(true);
                 
                 txtuser.setText("");
                 txtpass.setText("");
@@ -267,10 +285,10 @@ public class login extends javax.swing.JFrame {
             } else if(rs.getRow()>=1){
                 if(cbuser.getSelectedItem().equals("Admin")){
                     a.setVisible(true);
-                    pendaftaran.setEnabled(true);
+                    pendaftaran.setEnabled(false);
                     data_siswa.setEnabled(true);
                     data_petugas.setEnabled(true);
-                    hubungi.setEnabled(true);
+                    hubungi.setEnabled(false);
                     simpan.setEnabled(true);
                     edit.setEnabled(true);
                     tampil.setEnabled(true);
@@ -281,7 +299,10 @@ public class login extends javax.swing.JFrame {
                     hapus_p.setEnabled(true);
                     print.setEnabled(true);
                     print_p.setEnabled(true);
-                    psn_msk.setEnabled(true);
+                    server_chat.setEnabled(true);
+                    pmbyr.setEnabled(false);
+                    data_pmbyr.setEnabled(true);
+                    print_pmbyr.setEnabled(true);
                     
                     txtuser.setText("");
                     txtpass.setText("");
@@ -292,7 +313,7 @@ public class login extends javax.swing.JFrame {
                     pendaftaran.setEnabled(false);
                     data_siswa.setEnabled(true);
                     data_petugas.setEnabled(false);
-                    hubungi.setEnabled(false);
+                    hubungi.setEnabled(true);
                     simpan.setEnabled(true);
                     edit.setEnabled(true);
                     tampil.setEnabled(true);
@@ -303,7 +324,10 @@ public class login extends javax.swing.JFrame {
                     hapus_p.setEnabled(true);
                     print.setEnabled(false);
                     print_p.setEnabled(false);
-                    psn_msk.setEnabled(true);
+                    server_chat.setEnabled(false);
+                    pmbyr.setEnabled(true);
+                    data_pmbyr.setEnabled(true);
+                    print_pmbyr.setEnabled(false);
 
                     txtuser.setText("");
                     txtpass.setText("");
@@ -325,7 +349,9 @@ public class login extends javax.swing.JFrame {
                     hapus_p.setEnabled(false);
                     print.setEnabled(false);
                     print_p.setEnabled(false);
-                    psn_msk.setEnabled(false);
+                    server_chat.setEnabled(false);
+                    pmbyr.setEnabled(true);
+                    data_pmbyr.setEnabled(false);
 
                     txtuser.setText("");
                     txtpass.setText("");
@@ -418,6 +444,7 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel5;
